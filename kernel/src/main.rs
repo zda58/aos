@@ -5,8 +5,9 @@
 use core::panic::PanicInfo;
 
 #[no_mangle]
-pub extern "C" fn _start() -> ! {
-    const UART_OUTPUT : *const u64 = 0x9000000;
+pub extern "C" fn _kernel_start() -> ! {
+    const UART_OUTPUT : *const u64 = 0x9000000 as *const u64;
+    loop {}
 }
 
 #[cfg(not(test))]

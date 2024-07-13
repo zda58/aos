@@ -1,5 +1,6 @@
 // PL011 UART
 
+/*
 use register::register_bitfields;
 
 register_bitfields! {
@@ -199,6 +200,9 @@ register_bitfields! {
         DMAONERR OFFSET(2) NUMBITS(2) [],
     ],
 }
+
+*/
+
 #[repr(C, packed)]
 pub struct PL011Uart {
     uart_dr: u16,           // 0x000
