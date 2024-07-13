@@ -1,6 +1,6 @@
 [workspace]
 members = [
     "arch",
-    "init",
-    "kernel"
+    "kernel",
+    "drivers"
 ]
