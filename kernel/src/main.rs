@@ -4,6 +4,8 @@
 #![feature(lang_items)]
 use core::panic::PanicInfo;
 
+mod arch;
+
 #[no_mangle]
 pub extern "C" fn _kernel_start() -> ! {
     const UART_OUTPUT : *const u64 = 0x9000000 as *const u64;
