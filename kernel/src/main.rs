@@ -8,7 +8,10 @@ mod arch;
 
 #[no_mangle]
 pub extern "C" fn _kernel_start() -> ! {
-    const UART_OUTPUT : *const u64 = 0x9000000 as *const u64;
+    let UART_OUTPUT : *mut u8= 0x9000000 as *mut u8;
+    unsafe {
+        *UART_OUTPUT = b'a';
+    }
     loop {}
 }
 
