@@ -4,6 +4,7 @@ global_asm!(
     include_str!("boot.s")
 );
 
-pub fn _aarch64_kernel_entry() -> ! {
+#[no_mangle]
+pub extern "C" fn _aarch64_kernel_entry() -> ! {
     crate::_kernel_start();
 }
