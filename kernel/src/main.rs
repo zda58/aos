@@ -5,12 +5,16 @@
 use core::panic::PanicInfo;
 
 mod arch;
+mod kio;
+
+extern "C" {
+    fn get_el_num() -> u64;
+}
 
 #[no_mangle]
-pub extern "C" fn _kernel_start() -> ! {
-    let UART_OUTPUT : *mut u8= 0x9000000 as *mut u8;
+pub extern "C" fn kernel_start() -> ! {
     unsafe {
-        *UART_OUTPUT = b'a';
+        kio::printk("fwefew");
     }
     loop {}
 }
@@ -20,7 +24,3 @@ pub extern "C" fn _kernel_start() -> ! {
 fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
-
-#[cfg(not(test))]
-#[lang = "eh_personality"]
-extern "C" fn eh_personality() {}

@@ -5,6 +5,6 @@ global_asm!(
 );
 
 #[no_mangle]
-pub extern "C" fn _aarch64_kernel_entry() -> ! {
-    crate::_kernel_start();
+pub extern "C" fn aarch64_kernel_entry() -> ! {
+    crate::kernel_start();
 }

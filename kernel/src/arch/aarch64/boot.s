@@ -1,6 +1,6 @@
 .section .text
-.global _start
+.globl _start
 _start:
-    ldr x30, =0x40001000;
+    ldr x30, =__stack_top;
     mov sp, x30
-    b _aarch64_kernel_entry
+    b aarch64_kernel_entry
